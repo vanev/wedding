@@ -1,0 +1,33 @@
+.list {
+}
+
+.item {
+  text-align: center;
+}
+.item + .item {
+  margin-top: 0.75rem;
+}
+
+.header {
+  color: var(--colors-dark-text);
+  font-family: var(--fonts-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header + .body {
+  margin-top: 0.25rem;
+}
+
+.body {
+  color: var(--colors-dark-text);
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.header sup,
+.body sup {
+  font-size: 0.6em;
+  vertical-align: top;
+}

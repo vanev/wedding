@@ -1,0 +1,16 @@
+.root {
+  display: block;
+
+  color: var(--colors-dark-text);
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  writing-mode: sideways-lr;
+}
+
+.root strong {
+  font-family: var(--fonts-display);
+  font-weight: bold;
+}

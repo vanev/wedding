@@ -1,0 +1,52 @@
+.names {
+  font-size: 1.5rem;
+}
+
+.name {
+  display: block;
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  color: var(--colors-dark-text);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.name + .ampersand {
+  margin-top: 1rem;
+}
+
+.ampersand {
+  display: block;
+  font-family: var(--fonts-display);
+  font-size: 10rem;
+  line-height: 1em;
+  color: var(--colors-light-text);
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .name {
+    white-space: pre;
+    font-family: var(--fonts-display);
+    font-weight: bold;
+    font-size: 2.75rem;
+    color: var(--colors-light-text);
+  }
+}
+
+@media (min-width: 700px) {
+  .names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name + .ampersand {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+
+  .ampersand + .name {
+    margin-left: 1rem;
+  }
+}

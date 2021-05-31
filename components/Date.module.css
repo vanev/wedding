@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  color: var(--colors-light-text);
+  font-family: var(--fonts-display);
+  font-size: 20vh;
+  line-height: 1em;
+  writing-mode: sideways-rl;
+}

@@ -1,0 +1,59 @@
+/***************************
+ *     Source Code Pro     *
+ ***************************/
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 800;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Black.woff") format("woff"),
+    url("/fonts/SourceCodePro-Black.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Bold.woff") format("woff"),
+    url("/fonts/SourceCodePro-Bold.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Semibold.woff") format("woff"),
+    url("/fonts/SourceCodePro-Semibold.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Medium.woff") format("woff"),
+    url("/fonts/SourceCodePro-Medium.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Regular.woff") format("woff"),
+    url("/fonts/SourceCodePro-Regular.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-Light.woff") format("woff"),
+    url("/fonts/SourceCodePro-Light.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/fonts/SourceCodePro-ExtraLight.woff") format("woff"),
+    url("/fonts/SourceCodePro-ExtraLight.woff") format("woff2");
+}

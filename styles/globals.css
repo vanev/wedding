@@ -1,14 +1,29 @@
+:root {
+  --fonts-display: "Voyage", serif;
+  --fonts-mono: "Source Code Pro", monospace;
+
+  --colors-paper: #f0ebe1;
+  --colors-dark-text: #485956;
+  --colors-light-text: #bcb39d;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  background: var(--colors-paper);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
 * {
