@@ -57,3 +57,23 @@
   src: url("/fonts/SourceCodePro-ExtraLight.woff") format("woff"),
     url("/fonts/SourceCodePro-ExtraLight.woff") format("woff2");
 }
+
+/***************************
+ *         Voyage          *
+ ***************************/
+
+@font-face {
+  font-family: "Voyage";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/fonts/Voyage-Bold.woff") format("woff"),
+    url("/fonts/Voyage-Bold.woff") format("woff2");
+}
+
+@font-face {
+  font-family: "Voyage";
+  font-weight: normal;
+  font-style: normal;
+  src: url("/fonts/Voyage-Regular.woff") format("woff"),
+    url("/fonts/Voyage-Regular.woff") format("woff2");
+}

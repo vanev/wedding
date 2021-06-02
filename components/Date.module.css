@@ -8,5 +8,5 @@
   font-family: var(--fonts-display);
   font-size: 20vh;
   line-height: 1em;
-  writing-mode: sideways-rl;
+  writing-mode: vertical-rl;
 }
