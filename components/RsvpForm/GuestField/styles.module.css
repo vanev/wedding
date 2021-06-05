@@ -1,0 +1,65 @@
+.root {
+  position: relative;
+  display: block;
+}
+.root.active {
+}
+.root.inactive {
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-family: var(--fonts-mono);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--colors-light-text);
+  transform: translateX(-50%);
+}
+.root.active .label {
+  color: var(--colors-dark-text);
+}
+
+.input {
+  padding: 0.3em 0.3em 0.5em;
+  width: 100%;
+  min-height: 1.3em;
+  border: double 3px var(--colors-light-text);
+  background: transparent;
+  outline: none;
+  font-family: var(--fonts-display);
+  font-size: 9.5vw;
+  line-height: 1.3em;
+  text-align: center;
+  color: var(--colors-dark-text);
+}
+.root.active .input {
+  border: double 3px var(--colors-dark-text);
+  color: var(--colors-light-text);
+}
+
+.suggestions {
+  padding: 0.5em 0;
+  border: solid 1px var(--colors-dark-text);
+  border-top: none;
+  margin: 0;
+  font-size: 1.5rem;
+  list-style: none;
+}
+
+.suggestion {
+  padding: 0 0.5em;
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+  color: var(--colors-dark-text);
+  cursor: pointer;
+}
+.suggestion.selected {
+  font-weight: 600;
+}
+.suggestion + .suggestion {
+  margin-top: 0.5em;
+}
