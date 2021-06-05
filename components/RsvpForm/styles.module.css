@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+}
+
+.field + .field {
+  margin-top: 3rem;
+}
+
+.field + .button {
+  margin-top: 3rem;
+}
+
+.button {
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 0.25rem;
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--colors-paper);
+  background: var(--colors-dark-text);
+  cursor: pointer;
+  transition: transform ease 250ms, box-shadow ease 250ms;
+}
+.button:disabled,
+.button:disabled:hover {
+  color: var(--colors-paper);
+  background: var(--colors-light-text);
+  cursor: not-allowed;
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+.button:hover {
+  transform: translate(0, -2px);
+  box-shadow: 0 2px 0 var(--colors-light-text);
+}
+.button:active {
+  transform: translate(0, 1px);
+  box-shadow: inset 0 1px 0 var(--colors-light-text);
+}
