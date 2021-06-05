@@ -33,6 +33,7 @@
   font-size: 9.5vw;
   line-height: 1.3em;
   text-align: left;
+  text-transform: capitalize;
   color: var(--colors-light-text);
 }
 .root.active .input {
@@ -57,6 +58,7 @@
   font-size: 9.5vw;
   line-height: 1.3em;
   text-align: left;
+  text-transform: capitalize;
   color: var(--colors-light-text);
 }
 
