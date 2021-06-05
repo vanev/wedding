@@ -12,7 +12,7 @@
 }
 
 .name + .ampersand {
-  margin-top: 1rem;
+  margin-top: -1.5rem;
 }
 
 .ampersand {
@@ -29,8 +29,12 @@
     white-space: pre;
     font-family: var(--fonts-display);
     font-weight: bold;
-    font-size: 2.75rem;
+    font-size: 6.28571429vw;
     color: var(--colors-light-text);
+  }
+
+  .ampersand {
+    font-size: 22.85714286vw;
   }
 }
 
@@ -43,10 +47,10 @@
 
   .name + .ampersand {
     margin-top: 0;
-    margin-left: 1rem;
+    margin-left: 2.28571429vw;
   }
 
   .ampersand + .name {
-    margin-left: 1rem;
+    margin-left: 2.28571429vw;
   }
 }

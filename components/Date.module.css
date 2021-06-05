@@ -2,11 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 0.225em;
   width: 100vw;
 
   color: var(--colors-light-text);
   font-family: var(--fonts-display);
-  font-size: 20vh;
+  font-size: 50vw;
   line-height: 1em;
   writing-mode: vertical-rl;
 }
