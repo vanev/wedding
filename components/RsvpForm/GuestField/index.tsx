@@ -6,17 +6,23 @@ import {
   KeyboardEventHandler,
   ChangeEventHandler,
 } from "react";
-import { isOutOfBound } from "fp-ts/lib/Array";
+import classnames from "classnames";
 import Guest from "../../../lib/Guest";
-import useClickOutside from "../../../hooks/useClickOutside";
 import useFuse from "../../../hooks/useFuse";
 import State, {
   active,
-  inactive,
-  incrementIndex,
-  decrementIndex,
+  empty,
+  isActive,
+  isImperfectMatch,
+  isInactive,
+  isPerfectMatch,
+  isSuggestion,
+  noMatch,
+  perfectMatch,
+  suggestion,
 } from "./State";
 import styles from "./styles.module.css";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 type Props = {
   className?: string;
@@ -33,83 +39,96 @@ const GuestField = ({
   onChange,
   value,
 }: Props) => {
-  const [state, setState] = useState<State>(inactive);
+  const [state, setState] = useState<State>(empty);
   const fuse = useFuse(guests, ["name"]);
   const rootRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useClickOutside(rootRef, (event) => setState(inactive));
+  const blur = () => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+
+    if (isPerfectMatch(state)) {
+      onChange(state.guest);
+      setState(empty);
+    } else if (isImperfectMatch(state)) {
+      onChange(undefined);
+      setState(suggestion(state.query, state.guest));
+    } else if (isSuggestion(state)) {
+      setState(suggestion(state.query, state.guest));
+    } else {
+      setState(empty);
+    }
+  };
+
+  useClickOutside(rootRef, blur);
+
+  const onInputFocus: FocusEventHandler<HTMLInputElement> = (event) => {
+    if (value) {
+      setState(perfectMatch(value.name, value));
+    } else if (isSuggestion(state)) {
+      setState(active(state.query, fuse.search(state.query)));
+    } else {
+      setState(noMatch(""));
+    }
+  };
+
+  const onInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setState(active(event.target.value, fuse.search(event.target.value)));
+  };
 
   const onSuggestionClick =
     (guest: Guest): MouseEventHandler<HTMLElement> =>
     (event) => {
       onChange(guest);
-      setState(inactive);
+      setState(empty);
     };
 
-  const onInputFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-    setState(active(value ? value.name : ""));
-  };
-
-  const onInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setState(active(event.target.value));
-  };
-
-  const results = state._tag === "Active" ? fuse.search(state.query) : [];
-
   const onInputKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-    if (state._tag === "Inactive") return;
+    if (isInactive(state)) return;
 
     switch (event.key) {
       case "Tab":
-        setState(inactive);
+        event.preventDefault();
+        blur();
         break;
 
-      case "ArrowDown": {
+      case "Enter":
         event.preventDefault();
-        setState(incrementIndex(results)(state));
+        blur();
         break;
-      }
-
-      case "ArrowUp": {
-        event.preventDefault();
-        setState(decrementIndex(results)(state));
-        break;
-      }
-
-      case "Enter": {
-        event.preventDefault();
-
-        if (!isOutOfBound(state.selectedIndex, results)) {
-          onChange(results[state.selectedIndex].item);
-          setState(inactive);
-
-          if (inputRef.current) {
-            inputRef.current.blur();
-          }
-        }
-      }
 
       default:
         break;
     }
   };
 
-  const onSuggestionMouseOver =
-    (index: number): MouseEventHandler<HTMLLIElement> =>
-    (event) => {
-      if (state._tag === "Active") {
-        setState(active(state.query, index));
-      }
-    };
+  let inputValue = "";
+  switch (state._tag) {
+    case "Empty":
+      inputValue = value ? value.name : "";
+      break;
+
+    case "Suggestion":
+    case "NoMatch":
+    case "ImperfectMatch":
+    case "PerfectMatch":
+      inputValue = state.query;
+      break;
+  }
+
+  const rootClassName = classnames(
+    styles.root,
+    {
+      [styles.active]: isActive(state),
+      [styles.hasValue]: !!value,
+    },
+    className,
+  );
 
   return (
-    <div
-      className={`${styles.root} ${
-        styles[state._tag.toLowerCase()]
-      } ${className}`}
-      ref={rootRef}
-    >
+    <div className={rootClassName} ref={rootRef}>
       <label className={styles.label} htmlFor="guest_input">
         Name
       </label>
@@ -122,26 +141,21 @@ const GuestField = ({
         onFocus={onInputFocus}
         onKeyDown={onInputKeyDown}
         ref={inputRef}
-        value={state._tag === "Active" ? state.query : value ? value.name : ""}
+        value={inputValue}
       />
 
-      {results.length > 0 ? (
-        <ul className={styles.suggestions}>
-          {results.slice(0, 1).map(({ item, score }, index) => (
-            <li
-              className={`${styles.suggestion} ${
-                state._tag === "Active" && state.selectedIndex === index
-                  ? styles.selected
-                  : ""
-              }`}
-              key={item.id}
-              onClick={onSuggestionClick(item)}
-              onMouseOver={onSuggestionMouseOver(index)}
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
+      {isPerfectMatch(state) ? (
+        <span className={styles.shadow}>{state.guest.name}</span>
+      ) : null}
+
+      {isSuggestion(state) ? (
+        <span className={styles.suggestion}>
+          Did you mean{" "}
+          <strong onClick={onSuggestionClick(state.guest)}>
+            {state.guest.name}
+          </strong>
+          ?
+        </span>
       ) : null}
     </div>
   );

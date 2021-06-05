@@ -4,7 +4,7 @@
 }
 .root.active {
 }
-.root.inactive {
+.root.hasValue {
 }
 
 .label {
@@ -22,44 +22,61 @@
 }
 
 .input {
+  position: relative;
+  z-index: 2;
   padding: 0.3em 0.3em 0.5em;
   width: 100%;
-  min-height: 1.3em;
   border: double 3px var(--colors-light-text);
   background: transparent;
   outline: none;
   font-family: var(--fonts-display);
   font-size: 9.5vw;
   line-height: 1.3em;
-  text-align: center;
-  color: var(--colors-dark-text);
+  text-align: left;
+  color: var(--colors-light-text);
 }
 .root.active .input {
   border: double 3px var(--colors-dark-text);
+  color: var(--colors-dark-text);
+}
+.root.hasValue .input {
+  color: var(--colors-dark-text);
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 0.3em 0.3em 0.5em;
+  width: 100%;
+  border: double 3px transparent;
+  background: transparent;
+  outline: none;
+  font-family: var(--fonts-display);
+  font-size: 9.5vw;
+  line-height: 1.3em;
+  text-align: left;
   color: var(--colors-light-text);
 }
 
-.suggestions {
-  padding: 0.5em 0;
-  border: solid 1px var(--colors-dark-text);
-  border-top: none;
-  margin: 0;
-  font-size: 1.5rem;
-  list-style: none;
+.input + .suggestion {
+  margin-top: 1em;
 }
 
 .suggestion {
-  padding: 0 0.5em;
+  display: block;
   font-family: var(--fonts-mono);
   font-weight: 300;
-  font-size: 1em;
+  font-size: 2rem;
   text-align: center;
   color: var(--colors-dark-text);
   cursor: pointer;
 }
-.suggestion.selected {
-  font-weight: 600;
-}
-.suggestion + .suggestion {
-  margin-top: 0.5em;
+.suggestion strong {
+  font-family: var(--fonts-display);
+  font-weight: bold;
+  font-size: 1em;
+  color: var(--colors-dark-text);
+  white-space: nowrap;
 }
