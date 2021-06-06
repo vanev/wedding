@@ -3,8 +3,8 @@
   --fonts-mono: "Source Code Pro", monospace;
 
   --colors-paper: #f0ebe1;
-  --colors-dark-text: #465956;
-  --colors-light-text: #bcb39d;
+  --colors-primary-text: #465956;
+  --colors-secondary-text: #bcb39d;
 }
 
 html,

@@ -6,7 +6,7 @@
   font-family: var(--fonts-display);
   font-weight: normal;
   font-size: 2.5rem;
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   text-align: center;
 }
 

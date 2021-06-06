@@ -9,7 +9,7 @@
 }
 
 .header {
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   font-family: var(--fonts-mono);
   font-weight: 600;
   text-transform: uppercase;
@@ -20,7 +20,7 @@
 }
 
 .body {
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   font-family: var(--fonts-mono);
   font-weight: 300;
   text-transform: uppercase;

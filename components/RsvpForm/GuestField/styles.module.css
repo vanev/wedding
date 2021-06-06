@@ -14,11 +14,11 @@
   font-family: var(--fonts-mono);
   font-size: 1rem;
   font-weight: 300;
-  color: var(--colors-light-text);
+  color: var(--colors-secondary-text);
   transform: translateX(-50%);
 }
 .root.active .label {
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
 }
 
 .input {
@@ -26,7 +26,7 @@
   z-index: 2;
   padding: 0.3em 0.3em 0.5em;
   width: 100%;
-  border: double 3px var(--colors-light-text);
+  border: double 3px var(--colors-secondary-text);
   background: transparent;
   outline: none;
   font-family: var(--fonts-display);
@@ -34,14 +34,14 @@
   line-height: 1.3em;
   text-align: left;
   text-transform: capitalize;
-  color: var(--colors-light-text);
+  color: var(--colors-secondary-text);
 }
 .root.active .input {
-  border: double 3px var(--colors-dark-text);
-  color: var(--colors-dark-text);
+  border: double 3px var(--colors-primary-text);
+  color: var(--colors-primary-text);
 }
 .root.hasValue .input {
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
 }
 
 .shadow {
@@ -59,7 +59,7 @@
   line-height: 1.3em;
   text-align: left;
   text-transform: capitalize;
-  color: var(--colors-light-text);
+  color: var(--colors-secondary-text);
 }
 
 .input + .suggestion {
@@ -72,13 +72,13 @@
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   cursor: pointer;
 }
 .suggestion strong {
   font-family: var(--fonts-display);
   font-weight: bold;
   font-size: 1em;
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   white-space: nowrap;
 }

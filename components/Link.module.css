@@ -1,7 +1,7 @@
 .root {
   display: block;
 
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   font-family: var(--fonts-mono);
   font-weight: 300;
   font-size: 1.5rem;

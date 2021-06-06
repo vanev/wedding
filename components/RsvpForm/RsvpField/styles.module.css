@@ -22,11 +22,11 @@
   width: 1em;
   height: 1em;
   font-size: 1em;
-  border: solid 1px var(--colors-light-text);
+  border: solid 1px var(--colors-secondary-text);
   cursor: pointer;
 }
 .input:checked + .checkbox {
-  border: solid 1px var(--colors-dark-text);
+  border: solid 1px var(--colors-primary-text);
 }
 .input:checked + .checkbox:after {
   content: "X️";
@@ -40,7 +40,7 @@
   height: 100%;
   font-family: var(--fonts-mono);
   font-weight: 600;
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
 }
 
 .checkbox + .label {
@@ -50,7 +50,7 @@
 .label {
   font-family: var(--fonts-mono);
   font-weight: 300;
-  color: var(--colors-dark-text);
+  color: var(--colors-primary-text);
   text-transform: uppercase;
   cursor: pointer;
 }
