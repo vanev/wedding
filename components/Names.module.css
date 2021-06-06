@@ -29,20 +29,28 @@
     white-space: pre;
     font-family: var(--fonts-display);
     font-weight: bold;
-    font-size: 6.28571429vw;
+    font-size: 9vw;
     color: var(--colors-secondary-text);
   }
 
   .ampersand {
-    font-size: 22.85714286vw;
+    font-size: 30vw;
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 700px) and (min-aspect-ratio: 1/1) {
   .names {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .name {
+    font-size: 7vw;
+  }
+
+  .ampersand {
+    font-size: 23vw;
   }
 
   .name + .ampersand {
