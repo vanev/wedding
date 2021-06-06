@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import NextLink from "next/link";
 import styles from "./Link.module.css";
 
 type Props = {
@@ -8,9 +9,9 @@ type Props = {
 };
 
 const Link = ({ children, href, className = "" }: Props) => (
-  <a href={href} className={`${styles.root} ${className}`}>
-    {children}
-  </a>
+  <NextLink href={href}>
+    <a className={`${styles.root} ${className}`}>{children}</a>
+  </NextLink>
 );
 
 export default Link;
