@@ -20,7 +20,6 @@
   font-family: var(--fonts-display);
   font-size: 10rem;
   line-height: 1em;
-  color: var(--colors-secondary-text);
   text-align: center;
 }
 
@@ -30,7 +29,7 @@
     font-family: var(--fonts-display);
     font-weight: bold;
     font-size: 9vw;
-    color: var(--colors-secondary-text);
+    color: transparent;
   }
 
   .ampersand {

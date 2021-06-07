@@ -1,4 +1,5 @@
 import styles from "./Date.module.css";
+import ShinyText from "./ShinyText";
 
 const formatDate = (date: Date): string => {
   const month = date.getMonth() + 1;
@@ -14,7 +15,9 @@ type Props = {
 };
 
 const Date = ({ children, className = "" }: Props) => (
-  <div className={`${styles.root} ${className}`}>{formatDate(children)}</div>
+  <div className={`${styles.root} ${className}`}>
+    <ShinyText>{formatDate(children)}</ShinyText>
+  </div>
 );
 
 export default Date;
