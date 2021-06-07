@@ -1,0 +1,17 @@
+.root {
+  color: transparent;
+
+  background-color: var(--colors-secondary-text);
+
+  background-image: linear-gradient(
+    45deg,
+    var(--colors-secondary-text),
+    #dad4c4,
+    var(--colors-secondary-text)
+  );
+
+  background-size: 200vw 200vh;
+  background-repeat: no-repeat;
+  background-clip: text;
+  background-position: center center;
+}
