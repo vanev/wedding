@@ -4,11 +4,12 @@
 
 .name {
   display: block;
+  padding-bottom: 0.21em;
   font-family: var(--fonts-mono);
   font-weight: 300;
   color: var(--colors-primary-text);
-  text-transform: uppercase;
   text-align: center;
+  line-height: 0.85em;
 }
 
 .name + .ampersand {
@@ -53,7 +54,7 @@
   }
 
   .name + .ampersand {
-    margin-top: 0;
+    margin-top: -0.15em;
     margin-left: 2.28571429vw;
   }
 
