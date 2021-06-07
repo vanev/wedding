@@ -1,5 +1,5 @@
-import ShinyText from "./ShinyText";
-import styles from "./Names.module.css";
+import ShinyText from "../ShinyText";
+import styles from "./styles.module.css";
 
 type Props = {
   names: [string, string];

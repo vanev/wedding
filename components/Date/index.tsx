@@ -1,5 +1,5 @@
-import styles from "./Date.module.css";
-import ShinyText from "./ShinyText";
+import ShinyText from "../ShinyText";
+import styles from "./styles.module.css";
 
 const formatDate = (date: Date): string => {
   const month = date.getMonth() + 1;
