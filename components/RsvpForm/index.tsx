@@ -3,6 +3,7 @@ import { toArray } from "fp-ts/lib/Set";
 import { peopleTable } from "../../lib/Airtable";
 import Guest, { Ord as GuestOrd } from "../../lib/Guest";
 import useForm from "../../hooks/useForm";
+import Button from "../Button";
 import Values, { initial, validator } from "./Values";
 import GuestField from "./GuestField";
 import RsvpField from "./RsvpField";
@@ -52,13 +53,13 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
             value={formState.values.rsvp}
           />
 
-          <button
+          <Button
             className={styles.button}
             disabled={formState._tag !== "Complete"}
             type="submit"
           >
             Submit
-          </button>
+          </Button>
         </form>
       );
 
@@ -76,9 +77,9 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
         <div className={styles.form}>
           <p className={styles.message}>RSVP Sent Successfully!</p>
 
-          <button className={styles.button} type="button" onClick={reset}>
+          <Button className={styles.button} type="button" onClick={reset}>
             RSVP for Someone Else
-          </button>
+          </Button>
         </div>
       );
 
@@ -87,9 +88,9 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
         <div className={styles.form}>
           <p className={styles.message}>Uh oh, something went wrong!</p>
 
-          <button className={styles.button} type="button" onClick={reset}>
+          <Button className={styles.button} type="button" onClick={reset}>
             Try Again
-          </button>
+          </Button>
         </div>
       );
   }
