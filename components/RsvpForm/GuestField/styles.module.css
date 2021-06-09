@@ -27,6 +27,8 @@
   padding: 0.3em 0.3em 0.5em;
   width: 100%;
   border: double 3px var(--colors-secondary-text);
+  border-radius: 0;
+  margin: 0;
   background: transparent;
   outline: none;
   font-family: var(--fonts-display);
@@ -35,9 +37,11 @@
   text-align: left;
   text-transform: capitalize;
   color: var(--colors-secondary-text);
+  box-shadow: none;
+  appearance: none;
 }
 .root.active .input {
-  border: double 3px var(--colors-primary-text);
+  border-color: var(--colors-primary-text);
   color: var(--colors-primary-text);
 }
 .root.hasValue .input {
