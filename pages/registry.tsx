@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Page from "../components/Page";
 
 const Registry = () => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const Registry = () => {
   }, []);
 
   return (
-    <div>
+    <Page>
       <a
         className="zola-registry-embed"
         href="www.zola.com/registry/jamessiegelwedding"
@@ -25,7 +26,7 @@ const Registry = () => {
       >
         Our Zola Wedding Registry
       </a>
-    </div>
+    </Page>
   );
 };
 
