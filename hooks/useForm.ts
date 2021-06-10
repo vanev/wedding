@@ -1,73 +1,14 @@
 import { useState } from "react";
-
-type Incomplete<V> = {
-  _tag: "Incomplete";
-  values: Partial<V>;
-};
-
-export const incomplete = <V>(values: Partial<V>): Incomplete<V> => ({
-  _tag: "Incomplete",
-  values,
-});
-
-type Complete<V> = {
-  _tag: "Complete";
-  values: V;
-};
-
-export const complete = <V>(values: V): Complete<V> => ({
-  _tag: "Complete",
-  values,
-});
-
-type Submitting<V> = {
-  _tag: "Submitting";
-  values: V;
-};
-
-export const submitting = <V>(values: V): Submitting<V> => ({
-  _tag: "Submitting",
-  values,
-});
-
-type Success<V> = {
-  _tag: "Success";
-  values: V;
-  response: unknown;
-};
-
-export const success =
-  <V>(values: V) =>
-  (response: unknown): Success<V> => ({
-    _tag: "Success",
-    values,
-    response,
-  });
-
-type Failure<V> = {
-  _tag: "Failure";
-  values: V;
-  error: Error;
-};
-
-export const failure =
-  <V>(values: V) =>
-  (error: Error): Failure<V> => ({
-    _tag: "Failure",
-    values,
-    error,
-  });
-
-type State<V> =
-  | Incomplete<V>
-  | Complete<V>
-  | Submitting<V>
-  | Success<V>
-  | Failure<V>;
-
-type Validator<Values> = (values: Partial<Values>) => values is Values;
-
-type SubmitHandler<Values> = (values: Values) => Promise<unknown>;
+import State, {
+  incomplete,
+  complete,
+  success,
+  failure,
+  submitting,
+  isComplete,
+} from "../lib/Form/State";
+import Validator from "../lib/Form/Validator";
+import SubmitHandler from "../lib/Form/SubmitHandler";
 
 type Updater<Values> = <Key extends keyof Values>(
   key: Key,
@@ -83,8 +24,7 @@ const useForm = <Values>(
   validator: Validator<Values>,
   onSubmit: SubmitHandler<Values>,
 ): [State<Values>, Updater<Values>, Submitter<Values>, Resetter<Values>] => {
-  const initialState = incomplete(initialValues);
-  const [state, setState] = useState<State<Values>>(initialState);
+  const [state, setState] = useState<State<Values>>(incomplete(initialValues));
 
   const updater: Updater<Values> = (key, value) => {
     const updatedValues: Partial<Values> = { ...state.values, [key]: value };
@@ -97,7 +37,9 @@ const useForm = <Values>(
   };
 
   const submitter: Submitter<Values> = () => {
-    if (state._tag !== "Complete") return;
+    if (!isComplete(state)) return;
+
+    setState(submitting(state.values));
 
     onSubmit(state.values)
       .then(success(state.values))

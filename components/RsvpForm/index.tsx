@@ -2,6 +2,7 @@ import { FormEventHandler, useEffect } from "react";
 import { toArray } from "fp-ts/lib/Set";
 import { peopleTable } from "../../lib/Airtable";
 import Guest, { Ord as GuestOrd } from "../../lib/Guest";
+import { isSuccess, isComplete } from "../../lib/Form/State";
 import useForm from "../../hooks/useForm";
 import Button from "../Button";
 import Values, { initial, validator } from "./Values";
@@ -25,7 +26,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
   );
 
   useEffect(() => {
-    if (formState._tag === "Success") {
+    if (isSuccess(formState)) {
       onSuccess(formState.values);
     }
   }, [formState._tag]);
@@ -55,7 +56,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
 
           <Button
             className={styles.button}
-            disabled={formState._tag !== "Complete"}
+            disabled={!isComplete(formState)}
             type="submit"
           >
             Submit
