@@ -5,6 +5,24 @@
   align-items: center;
 }
 
+.message {
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--colors-primary-text);
+  text-transform: uppercase;
+}
+.message strong {
+  font-family: var(--fonts-display);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.message + .button,
+.message + .details {
+  margin-top: 3rem;
+}
+
 .field {
 }
 
@@ -13,6 +31,10 @@
 }
 
 .field + .button {
+  margin-top: 3rem;
+}
+
+.details + .button {
   margin-top: 3rem;
 }
 

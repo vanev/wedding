@@ -9,6 +9,7 @@ import Values, { initial, validator } from "./Values";
 import GuestField from "./GuestField";
 import RsvpField from "./RsvpField";
 import styles from "./styles.module.css";
+import EventDetails from "../EventDetails";
 
 const onFormSubmit = (values: Values): Promise<unknown> =>
   peopleTable().update(values.guest.id, { RSVP: values.rsvp });
@@ -68,15 +69,29 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
       return (
         <div className={styles.form}>
           <p className={styles.message}>
-            Sending RSVP for {formState.values.guest.name}...
+            Sending RSVP for <strong>{formState.values.guest.name}</strong>
           </p>
         </div>
       );
 
     case "Success":
-      return (
+      return formState.values.rsvp === "Attending" ? (
         <div className={styles.form}>
-          <p className={styles.message}>RSVP Sent Successfully!</p>
+          <p className={styles.message}>
+            See <strong>you</strong> there
+          </p>
+
+          <EventDetails className={styles.details} />
+
+          <Button className={styles.button} type="button" onClick={reset}>
+            RSVP for Someone Else
+          </Button>
+        </div>
+      ) : (
+        <div className={styles.form}>
+          <p className={styles.message}>
+            <strong>Sorry</strong> you can't make it
+          </p>
 
           <Button className={styles.button} type="button" onClick={reset}>
             RSVP for Someone Else
@@ -87,7 +102,9 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
     case "Failure":
       return (
         <div className={styles.form}>
-          <p className={styles.message}>Uh oh, something went wrong!</p>
+          <p className={styles.message}>
+            Uh oh, something went <strong>wrong</strong>
+          </p>
 
           <Button className={styles.button} type="button" onClick={reset}>
             Try Again
