@@ -78,7 +78,7 @@ export const failure =
     values,
   });
 
-type State<V> =
+export type State<V> =
   | Incomplete<V>
   | Complete<V>
   | Submitting<V>
@@ -108,5 +108,3 @@ export function getValues<V>(state: State<V>) {
 export const getResponse = <V>(state: Success<V>): unknown => state.response;
 
 export const getReason = <V>(state: Failure<V>): unknown => state.reason;
-
-export default State;

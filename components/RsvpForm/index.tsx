@@ -2,7 +2,7 @@ import { FormEventHandler, useEffect } from "react";
 import { toArray } from "fp-ts/lib/Set";
 import { peopleTable } from "../../lib/Airtable";
 import Guest, { Ord as GuestOrd } from "../../lib/Guest";
-import { isSuccess, isComplete } from "../../lib/Form/State";
+import * as Form from "../../lib/Form";
 import useForm from "../../hooks/useForm";
 import Button from "../Button";
 import Values, { initial, validator } from "./Values";
@@ -23,12 +23,12 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
   const state = useForm<Values>(initial, validator, onFormSubmit);
 
   useEffect(() => {
-    if (isSuccess(state)) onSuccess(state.values);
+    if (Form.State.isSuccess(state)) onSuccess(state.values);
   }, [state._tag]);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    if (isComplete(state)) state.submit();
+    if (Form.State.isComplete(state)) state.submit();
   };
 
   switch (state._tag) {
@@ -51,7 +51,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
 
           <Button
             className={styles.button}
-            disabled={!isComplete(state)}
+            disabled={!Form.State.isComplete(state)}
             type="submit"
           >
             Submit
