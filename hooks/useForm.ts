@@ -1,57 +1,77 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import State, {
   incomplete,
   complete,
   success,
   failure,
   submitting,
-  isComplete,
 } from "../lib/Form/State";
+import Submit from "../lib/Form/Submit";
+import Reset from "../lib/Form/Reset";
+import Update from "../lib/Form/Update";
 import Validator from "../lib/Form/Validator";
 import SubmitHandler from "../lib/Form/SubmitHandler";
-
-type Updater<Values> = <Key extends keyof Values>(
-  key: Key,
-  value: Values[Key] | void,
-) => void;
-
-type Submitter<Values> = () => void;
-
-type Resetter<Values> = () => void;
 
 const useForm = <Values>(
   initialValues: Partial<Values>,
   validator: Validator<Values>,
   onSubmit: SubmitHandler<Values>,
-): [State<Values>, Updater<Values>, Submitter<Values>, Resetter<Values>] => {
-  const [state, setState] = useState<State<Values>>(incomplete(initialValues));
+): State<Values> => {
+  const [values, setValues] = useState<Partial<Values>>(initialValues);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [response, setResponse] = useState<unknown | null>(null);
+  const [reason, setReason] = useState<unknown | null>(null);
 
-  const updater: Updater<Values> = (key, value) => {
-    const updatedValues: Partial<Values> = { ...state.values, [key]: value };
+  const reset: Reset<Values> = useCallback(() => {
+    setValues(initialValues);
+    setIsSubmitting(false);
+    setResponse(null);
+    setReason(null);
+  }, [initialValues]);
 
-    if (validator(updatedValues)) {
-      setState(complete(updatedValues));
-    } else {
-      setState(incomplete(updatedValues));
-    }
+  const update: Update<Values> = (key, value) =>
+    setValues((values) => ({ ...values, [key]: value }));
+
+  if (!validator(values)) {
+    if (isSubmitting) throw new Error("Impossible State");
+    if (response) throw new Error("Impossible State");
+    if (reason) throw new Error("Impossible State");
+
+    return incomplete<Values>(reset)(update)(values);
+  }
+
+  if (isSubmitting) {
+    if (response) throw new Error("Impossible State");
+    if (reason) throw new Error("Impossible State");
+
+    return submitting<Values>(values);
+  }
+
+  if (response) {
+    if (reason) throw new Error("Impossible State");
+
+    return success<Values>(reset)(values)(response);
+  }
+
+  if (reason) {
+    return failure<Values>(reset)(values)(reason);
+  }
+
+  const submit: Submit<Values> = () => {
+    setIsSubmitting(true);
+
+    onSubmit(values)
+      .then((res) => {
+        setResponse(res);
+        setIsSubmitting(false);
+      })
+      .catch((reason) => {
+        setReason(reason);
+        setIsSubmitting(false);
+      });
   };
 
-  const submitter: Submitter<Values> = () => {
-    if (!isComplete(state)) return;
-
-    setState(submitting(state.values));
-
-    onSubmit(state.values)
-      .then(success(state.values))
-      .catch(failure(state.values))
-      .then(setState);
-  };
-
-  const resetter: Resetter<Values> = () => {
-    setState(incomplete(initialValues));
-  };
-
-  return [state, updater, submitter, resetter];
+  return complete<Values>(reset)(update)(submit)(values);
 };
 
 export default useForm;

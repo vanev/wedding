@@ -1,20 +1,41 @@
+import Reset from "./Reset";
+import Submit from "./Submit";
+import Update from "./Update";
+
 export type Incomplete<V> = {
   _tag: "Incomplete";
+  reset: Reset<V>;
+  update: Update<V>;
   values: Partial<V>;
 };
-export const incomplete = <V>(values: Partial<V>): Incomplete<V> => ({
-  _tag: "Incomplete",
-  values,
-});
+export const incomplete =
+  <V>(reset: Reset<V>) =>
+  (update: Update<V>) =>
+  (values: Partial<V>): Incomplete<V> => ({
+    _tag: "Incomplete",
+    reset,
+    update,
+    values,
+  });
 
 export type Complete<V> = {
   _tag: "Complete";
+  reset: Reset<V>;
+  submit: Submit<V>;
+  update: Update<V>;
   values: V;
 };
-export const complete = <V>(values: V): Complete<V> => ({
-  _tag: "Complete",
-  values,
-});
+export const complete =
+  <V>(reset: Reset<V>) =>
+  (update: Update<V>) =>
+  (submit: Submit<V>) =>
+  (values: V): Complete<V> => ({
+    _tag: "Complete",
+    reset,
+    submit,
+    update,
+    values,
+  });
 
 export type Submitting<V> = {
   _tag: "Submitting";
@@ -27,28 +48,34 @@ export const submitting = <V>(values: V): Submitting<V> => ({
 
 export type Success<V> = {
   _tag: "Success";
-  values: V;
+  reset: Reset<V>;
   response: unknown;
+  values: V;
 };
 export const success =
-  <V>(values: V) =>
+  <V>(reset: Reset<V>) =>
+  (values: V) =>
   (response: unknown): Success<V> => ({
     _tag: "Success",
-    values,
+    reset,
     response,
+    values,
   });
 
 export type Failure<V> = {
   _tag: "Failure";
+  reason: unknown;
+  reset: Reset<V>;
   values: V;
-  error: Error;
 };
 export const failure =
-  <V>(values: V) =>
-  (error: Error): Failure<V> => ({
+  <V>(reset: Reset<V>) =>
+  (values: V) =>
+  (reason: unknown): Failure<V> => ({
     _tag: "Failure",
+    reason,
+    reset,
     values,
-    error,
   });
 
 type State<V> =
@@ -80,6 +107,6 @@ export function getValues<V>(state: State<V>) {
 
 export const getResponse = <V>(state: Success<V>): unknown => state.response;
 
-export const getError = <V>(state: Failure<V>): Error => state.error;
+export const getReason = <V>(state: Failure<V>): unknown => state.reason;
 
 export default State;

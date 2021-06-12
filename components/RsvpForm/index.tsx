@@ -20,24 +20,18 @@ type Props = {
 };
 
 const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
-  const [formState, updater, submit, reset] = useForm<Values>(
-    initial,
-    validator,
-    onFormSubmit,
-  );
+  const state = useForm<Values>(initial, validator, onFormSubmit);
 
   useEffect(() => {
-    if (isSuccess(formState)) {
-      onSuccess(formState.values);
-    }
-  }, [formState._tag]);
+    if (isSuccess(state)) onSuccess(state.values);
+  }, [state._tag]);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    submit();
+    if (isComplete(state)) state.submit();
   };
 
-  switch (formState._tag) {
+  switch (state._tag) {
     case "Incomplete":
     case "Complete":
       return (
@@ -45,19 +39,19 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
           <GuestField
             className={styles.field}
             guests={toArray(GuestOrd)(guests)}
-            onChange={(value) => updater("guest", value)}
-            value={formState.values.guest}
+            onChange={(value) => state.update("guest", value)}
+            value={state.values.guest}
           />
 
           <RsvpField
             className={styles.field}
-            onChange={(value) => updater("rsvp", value)}
-            value={formState.values.rsvp}
+            onChange={(value) => state.update("rsvp", value)}
+            value={state.values.rsvp}
           />
 
           <Button
             className={styles.button}
-            disabled={!isComplete(formState)}
+            disabled={!isComplete(state)}
             type="submit"
           >
             Submit
@@ -69,13 +63,13 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
       return (
         <div className={styles.form}>
           <p className={styles.message}>
-            Sending RSVP for <strong>{formState.values.guest.name}</strong>
+            Sending RSVP for <strong>{state.values.guest.name}</strong>
           </p>
         </div>
       );
 
     case "Success":
-      return formState.values.rsvp === "Attending" ? (
+      return state.values.rsvp === "Attending" ? (
         <div className={styles.form}>
           <p className={styles.message}>
             See <strong>you</strong> there
@@ -83,7 +77,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
 
           <EventDetails className={styles.details} />
 
-          <Button className={styles.button} type="button" onClick={reset}>
+          <Button className={styles.button} type="button" onClick={state.reset}>
             RSVP for Someone Else
           </Button>
         </div>
@@ -93,7 +87,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
             <strong>Sorry</strong> you can't make it
           </p>
 
-          <Button className={styles.button} type="button" onClick={reset}>
+          <Button className={styles.button} type="button" onClick={state.reset}>
             RSVP for Someone Else
           </Button>
         </div>
@@ -106,7 +100,7 @@ const RsvpForm = ({ guests, onSuccess = () => {} }: Props) => {
             Uh oh, something went <strong>wrong</strong>
           </p>
 
-          <Button className={styles.button} type="button" onClick={reset}>
+          <Button className={styles.button} type="button" onClick={state.reset}>
             Try Again
           </Button>
         </div>
