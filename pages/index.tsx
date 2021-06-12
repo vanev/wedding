@@ -2,7 +2,7 @@ import Head from "next/head";
 import DateDisplay from "../components/Date";
 import Names from "../components/Names";
 import Link from "../components/Link";
-import * as Details from "../components/Details";
+import EventDetails from "../components/EventDetails";
 import styles from "../styles/Home.module.css";
 
 const Home = () => {
@@ -39,26 +39,7 @@ const Home = () => {
           className={styles.names}
         />
 
-        <Details.List className={styles.details}>
-          <Details.Item>
-            <Details.Header>
-              Saturday December 11<sup>th</sup> 2021
-            </Details.Header>
-            <Details.Body>6:00 in the Evening</Details.Body>
-          </Details.Item>
-
-          <Details.Item>
-            <Details.Header>Brooklyn Winery</Details.Header>
-            <Details.Body>
-              213 N 8<sup>th</sup> Street Brooklyn New York
-            </Details.Body>
-          </Details.Item>
-
-          <Details.Item>
-            <Details.Header>Formal Attire</Details.Header>
-            <Details.Body>Dinner & Dancing to Follow</Details.Body>
-          </Details.Item>
-        </Details.List>
+        <EventDetails className={styles.details} />
       </main>
     </>
   );
