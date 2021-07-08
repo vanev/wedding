@@ -41,9 +41,11 @@ const Failure = ({ error }: FailureProps) => {
     <Page>
       <Title>RSVP</Title>
 
-      <Header>Uh Oh...</Header>
+      <Content>
+        <Header>Uh Oh...</Header>
 
-      <Body>{error}</Body>
+        <Body>{error}</Body>
+      </Content>
     </Page>
   );
 };
