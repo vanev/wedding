@@ -1,4 +1,4 @@
-import { useEffect, useState, RefObject } from "react";
+import { RefObject } from "react";
 import Position from "../../lib/Position";
 import useMousePosition from "../../hooks/useMousePosition";
 import useElementRect from "../../hooks/useElementRect";
