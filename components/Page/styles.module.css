@@ -14,5 +14,30 @@
   margin-top: 3.5rem;
 }
 
+.header {
+  font-family: var(--fonts-display);
+  font-weight: normal;
+  font-size: 2rem;
+  color: var(--colors-primary-text);
+  text-align: center;
+}
+
+.header + .content {
+  margin-top: 3.5rem;
+}
+
+.body {
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--colors-primary-text);
+  text-transform: uppercase;
+}
+.body strong {
+  font-family: var(--fonts-display);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .content {
 }
