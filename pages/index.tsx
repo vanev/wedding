@@ -30,6 +30,10 @@ const Home = () => {
           <strong>RSVP</strong> Here
         </Link>
 
+        <Link href="/lodging" className={styles.lodging}>
+          Where to <strong>Stay</strong>
+        </Link>
+
         <DateDisplay className={styles.date}>
           {new Date("12/11/21")}
         </DateDisplay>

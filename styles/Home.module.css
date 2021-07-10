@@ -20,6 +20,11 @@
 .rsvp {
   right: 2.5%;
 }
+.lodging {
+  position: absolute;
+  top: 16rem;
+  right: 2.5%;
+}
 
 .date {
 }

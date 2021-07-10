@@ -1,0 +1,27 @@
+.root {
+  font-size: 1rem;
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-style: unset;
+  line-height: 1.4em;
+  color: var(--colors-primary-text);
+}
+
+.root strong {
+  font-family: var(--fonts-display);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+.root em {
+}
+
+.root a,
+a.root {
+  color: inherit;
+  transition: color 250ms ease;
+}
+.root a:hover,
+a.root:hover {
+  color: var(--colors-secondary-text);
+}

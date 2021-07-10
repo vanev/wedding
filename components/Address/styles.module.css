@@ -1,0 +1,27 @@
+.root {
+  font-style: unset;
+}
+
+.line {
+}
+.line span + span:before {
+  content: ", ";
+}
+
+.street {
+}
+
+.neighborhood {
+}
+
+.city {
+}
+
+.state {
+}
+
+.zip {
+}
+
+.phone {
+}
