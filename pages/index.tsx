@@ -22,7 +22,10 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <Link href="/registry" className={styles.registry}>
+        <Link
+          href="https://www.zola.com/registry/jamessiegelwedding"
+          className={styles.registry}
+        >
           Check Out Our <strong>Registry</strong>
         </Link>
 
