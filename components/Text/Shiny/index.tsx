@@ -20,7 +20,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
   children: string;
 }
 
-const ShinyText = ({
+const Shiny = ({
   as: As = "span",
   className = "",
   children,
@@ -41,4 +41,4 @@ const ShinyText = ({
   );
 };
 
-export default ShinyText;
+export default Shiny;

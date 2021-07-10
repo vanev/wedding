@@ -1,4 +1,4 @@
-import ShinyText from "../ShinyText";
+import Shiny from "../Text/Shiny";
 import styles from "./styles.module.css";
 
 type Props = {
@@ -9,15 +9,11 @@ type Props = {
 
 const Names = ({ names, symbol = "&", className = "" }: Props) => (
   <h1 className={`${styles.names} ${className}`}>
-    <ShinyText className={styles.name}>
-      {names[0].replace(/ /g, "\n")}
-    </ShinyText>
+    <Shiny className={styles.name}>{names[0].replace(/ /g, "\n")}</Shiny>
 
-    <ShinyText className={styles.ampersand}>{symbol}</ShinyText>
+    <Shiny className={styles.ampersand}>{symbol}</Shiny>
 
-    <ShinyText className={styles.name}>
-      {names[1].replace(/ /g, "\n")}
-    </ShinyText>
+    <Shiny className={styles.name}>{names[1].replace(/ /g, "\n")}</Shiny>
   </h1>
 );
 

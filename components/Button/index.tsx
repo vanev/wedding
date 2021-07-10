@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, useRef } from "react";
 import classnames from "classnames";
-import useBackgroundPosition from "../ShinyText/useBackgroundPosition";
+import useBackgroundPosition from "../Text/Shiny/useBackgroundPosition";
 import styles from "./styles.module.css";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

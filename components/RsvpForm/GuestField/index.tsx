@@ -23,7 +23,7 @@ import State, {
 } from "./State";
 import styles from "./styles.module.css";
 import useClickOutside from "../../../hooks/useClickOutside";
-import ShinyText from "../../ShinyText";
+import Shiny from "../../Text/Shiny";
 
 type Props = {
   className?: string;
@@ -146,7 +146,7 @@ const GuestField = ({
       />
 
       {isPerfectMatch(state) ? (
-        <ShinyText className={styles.shadow}>{state.guest.name}</ShinyText>
+        <Shiny className={styles.shadow}>{state.guest.name}</Shiny>
       ) : null}
 
       {isSuggestion(state) ? (
