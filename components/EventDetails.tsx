@@ -10,7 +10,7 @@ const EventDetails = ({ className = "" }: Props) => (
       <Details.Header>
         Saturday December 11<sup>th</sup> 2021
       </Details.Header>
-      <Details.Body>6:00 in the Evening</Details.Body>
+      <Details.Body>5:30 in the Evening</Details.Body>
     </Details.Item>
 
     <Details.Item>
