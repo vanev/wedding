@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { filter, map } from "fp-ts/lib/Array";
 import { isRight } from "fp-ts/lib/Either";
 import { fromArray, remove } from "fp-ts/lib/Set";
@@ -38,15 +39,30 @@ type Props = SuccessProps | FailureProps;
 
 const Failure = ({ error }: FailureProps) => {
   return (
-    <Page>
-      <Title>RSVP</Title>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <Content>
-        <Header>Uh Oh...</Header>
+        <title>RSVP | James-Siegel Wedding</title>
 
-        <Body>{error}</Body>
-      </Content>
-    </Page>
+        <meta
+          name="description"
+          content="Evan Siegel & Lindsey James Wedding"
+        />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Page>
+        <Title>RSVP</Title>
+
+        <Content>
+          <Header>Uh Oh...</Header>
+
+          <Body>{error}</Body>
+        </Content>
+      </Page>
+    </>
   );
 };
 
@@ -60,13 +76,28 @@ const Success = ({ initialGuests }: SuccessProps) => {
   };
 
   return (
-    <Page>
-      <Title>RSVP</Title>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <Content>
-        <RsvpForm guests={guests} onSuccess={onRsvpFormSuccess} />
-      </Content>
-    </Page>
+        <title>RSVP | James-Siegel Wedding</title>
+
+        <meta
+          name="description"
+          content="Evan Siegel & Lindsey James Wedding"
+        />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Page>
+        <Title>RSVP</Title>
+
+        <Content>
+          <RsvpForm guests={guests} onSuccess={onRsvpFormSuccess} />
+        </Content>
+      </Page>
+    </>
   );
 };
 

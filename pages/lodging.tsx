@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Hotel from "../lib/Hotel";
 import Page, { Title, Content } from "../components/Page";
 import HotelDisplay from "../components/Hotel";
@@ -109,15 +110,27 @@ const hotels: Array<Hotel> = [
 ];
 
 const Lodging = () => (
-  <Page>
-    <Title>Lodging</Title>
+  <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <Content>
-      {hotels.map((hotel) => (
-        <HotelDisplay hotel={hotel} key={hotel.name} />
-      ))}
-    </Content>
-  </Page>
+      <title>Lodging | James-Siegel Wedding</title>
+
+      <meta name="description" content="Evan Siegel & Lindsey James Wedding" />
+
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+
+    <Page>
+      <Title>Lodging</Title>
+
+      <Content>
+        {hotels.map((hotel) => (
+          <HotelDisplay hotel={hotel} key={hotel.name} />
+        ))}
+      </Content>
+    </Page>
+  </>
 );
 
 export default Lodging;
