@@ -7,6 +7,7 @@ import Values from "./Values";
 import GuestField from "./GuestField";
 import RsvpField from "./RsvpField";
 import styles from "./styles.module.css";
+import Body from "../Text/Body";
 
 type Props = {
   guests: Set<Guest>;
@@ -21,6 +22,10 @@ const FormComponent = ({ guests, state }: Props) => {
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
+      <Body as="p" className={styles.note}>
+        Please RSVP for one guest at a time.
+      </Body>
+
       <GuestField
         className={styles.field}
         guests={toArray(GuestOrd)(guests)}
