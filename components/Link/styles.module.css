@@ -9,9 +9,14 @@
   text-decoration: none;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+  transition: color 250ms ease;
 }
 
 .root strong {
   font-family: var(--fonts-display);
   font-weight: bold;
+}
+
+.root:hover {
+  color: var(--colors-secondary-text);
 }
