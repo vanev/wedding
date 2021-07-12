@@ -35,7 +35,7 @@ const hotels: Array<Hotel> = [
         30-45 minute taxi from <strong>JFK</strong>
       </>,
       <>
-        5 minute drive or 10 minute walk from <strong>Brooklyn Winery</strong>
+        5 minute taxi or 10 minute walk from <strong>Brooklyn Winery</strong>
       </>,
     ],
   },
@@ -72,7 +72,7 @@ const hotels: Array<Hotel> = [
         30-45 minute taxi from <strong>JFK</strong>
       </>,
       <>
-        5 minute drive or 10 minute walk from <strong>Brooklyn Winery</strong>
+        5 minute taxi or 10 minute walk from <strong>Brooklyn Winery</strong>
       </>,
     ],
   },
@@ -103,7 +103,7 @@ const hotels: Array<Hotel> = [
         30-45 minute taxi from <strong>JFK</strong>
       </>,
       <>
-        15 minute drive from <strong>Brooklyn Winery</strong>
+        15 minute taxi from <strong>Brooklyn Winery</strong>
       </>,
     ],
   },
