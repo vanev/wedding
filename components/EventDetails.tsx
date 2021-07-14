@@ -19,11 +19,6 @@ const EventDetails = ({ className = "" }: Props) => (
         213 N 8<sup>th</sup> Street Brooklyn New York
       </Details.Body>
     </Details.Item>
-
-    <Details.Item>
-      <Details.Header>Formal Attire</Details.Header>
-      <Details.Body>Dinner & Dancing to Follow</Details.Body>
-    </Details.Item>
   </Details.List>
 );
 
