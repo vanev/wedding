@@ -1,4 +1,4 @@
-import { HTMLAttributes, useRef } from "react";
+import { HTMLAttributes, useRef, ReactNode } from "react";
 import classnames from "classnames";
 import useBackgroundPosition from "./useBackgroundPosition";
 import styles from "./styles.module.css";
@@ -17,7 +17,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     | "span"
     | "strong";
   className?: string;
-  children: string;
+  children: ReactNode;
 }
 
 const Shiny = ({
