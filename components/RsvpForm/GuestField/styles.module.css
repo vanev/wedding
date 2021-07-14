@@ -9,13 +9,14 @@
 
 .label {
   position: absolute;
-  top: 0;
+  top: 0.5rem;
   left: 50%;
   font-family: var(--fonts-mono);
   font-size: 1rem;
   font-weight: 300;
   color: var(--colors-secondary-text);
   transform: translateX(-50%);
+  text-transform: uppercase;
 }
 .root.active .label {
   color: var(--colors-primary-text);
@@ -24,7 +25,7 @@
 .input {
   position: relative;
   z-index: 2;
-  padding: 0.3em 0.3em 0.5em;
+  padding: calc(0.3em + 1.25rem) 0.3em 0.5em;
   width: 100%;
   border: double 3px var(--colors-secondary-text);
   border-radius: 0;
@@ -53,7 +54,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  padding: 0.3em 0.3em 0.5em;
+  padding: calc(0.3em + 1.25rem) 0.3em 0.5em;
   width: 100%;
   border: double 3px transparent;
   background: transparent;

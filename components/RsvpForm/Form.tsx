@@ -23,7 +23,8 @@ const FormComponent = ({ guests, state }: Props) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <Body as="p" className={styles.note}>
-        Please RSVP for one guest at a time.
+        We know you're excited, but please respond <strong>one</strong> person
+        at a time.
       </Body>
 
       <GuestField

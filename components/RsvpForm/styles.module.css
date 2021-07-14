@@ -23,6 +23,10 @@
   margin-top: 3rem;
 }
 
+.note {
+  text-align: center;
+}
+
 .note + .field {
   margin-top: 1rem;
 }
