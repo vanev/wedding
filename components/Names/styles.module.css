@@ -10,6 +10,7 @@
   color: var(--colors-primary-text);
   text-align: center;
   line-height: 0.85em;
+  text-transform: uppercase;
 }
 
 .name + .ampersand {
@@ -47,6 +48,7 @@
 
   .name {
     font-size: 7vw;
+    text-transform: none;
   }
 
   .ampersand {
