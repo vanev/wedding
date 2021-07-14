@@ -26,7 +26,7 @@ const Home = () => {
           href="https://www.zola.com/registry/jamessiegelwedding"
           className={styles.registry}
         >
-          Check Out Our <strong>Registry</strong>
+          Our <strong>Registry</strong>
         </Link>
 
         <Link href="/rsvp" className={styles.rsvp}>
