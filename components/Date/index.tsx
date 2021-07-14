@@ -1,12 +1,18 @@
 import Shiny from "../Text/Shiny";
 import styles from "./styles.module.css";
 
-const formatDate = (date: Date): string => {
+const formatDate = (date: Date) => {
   const month = date.getMonth() + 1;
   const day = date.getDate();
   const year = date.getFullYear().toString().slice(2);
 
-  return `${month}.${day}.${year}`;
+  return (
+    <>
+      <span className={styles.month}>{month}</span>
+      <span className={styles.day}>{day}</span>
+      <span className={styles.year}>{year}</span>
+    </>
+  );
 };
 
 type Props = {

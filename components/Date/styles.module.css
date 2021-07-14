@@ -11,3 +11,18 @@
   line-height: 1em;
   writing-mode: vertical-rl;
 }
+
+.month {
+  font-feature-settings: "ss01";
+}
+.month:after {
+  content: ".";
+}
+.day {
+}
+.day:after {
+  content: ".";
+}
+.year {
+  font-feature-settings: "ss01";
+}
