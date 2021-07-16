@@ -77,6 +77,39 @@ const hotels: Array<Hotel> = [
     ],
   },
   {
+    name: "The Pod Hotel",
+    url: "https://www.thepodhotel.com/pod-brooklyn/",
+    address: {
+      street: "247 Metropolitan Avenue",
+      neighborhood: "Williamsburg",
+      city: "Brooklyn",
+      state: "NY",
+      zip: "11211",
+      phone: "844 POD ROOM",
+      latitude: 40.715062911164516,
+      longitude: -73.95904311934147,
+    },
+    description: (
+      <>
+        If a spaceship from a kitschy movie had a baby with a very clean hostel
+        (do those exist?) you’d get the Pod Hotel. Compact, efficient, and
+        across the street from the almost windowless apartment where Evan lived
+        when we first started dating.
+      </>
+    ),
+    distances: [
+      <>
+        20 minute taxi from <strong>LGA</strong>
+      </>,
+      <>
+        30-45 minute taxi from <strong>JFK</strong>
+      </>,
+      <>
+        5 minute taxi or 7 minute walk from <strong>Brooklyn Winery</strong>
+      </>,
+    ],
+  },
+  {
     name: "Hampton Inn & Suites",
     url: "https://www.hilton.com/en/hotels/nycbohx-hampton-brooklyn-downtown/",
     address: {
