@@ -91,8 +91,9 @@ const hotels: Array<Hotel> = [
     },
     description: (
       <>
-        Located in Downtown Brooklyn on vibrant Flatbush Avenue, just steps away
-        from the Barclays Center, Manhattan Bridge, and BQE.
+        Located in Downtown Brooklyn on vibrant Flatbush Ave, there’s never a
+        dull moment when you’re just steps away from the Barclays Center, the
+        Manhattan Bridge, and the illustrious BQE.
       </>
     ),
     distances: [
