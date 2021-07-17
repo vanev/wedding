@@ -4,10 +4,11 @@ import styles from "./styles.module.css";
 
 type Props = {
   address: AddressType;
+  url: string;
   className?: string;
 };
 
-const Address = ({ address, className = "" }: Props) => (
+const Address = ({ address, url, className = "" }: Props) => (
   <address className={`${styles.root} ${className}`}>
     <div className={styles.line}>
       <Body className={styles.street}>{address.street}</Body>
@@ -23,6 +24,12 @@ const Address = ({ address, className = "" }: Props) => (
     <div className={styles.line}>
       <Body as="a" className={styles.phone} href={`tel:${address.phone}`}>
         {address.phone}
+      </Body>
+    </div>
+
+    <div className={styles.line}>
+      <Body as="a" className={styles.phone} href={url}>
+        Website
       </Body>
     </div>
   </address>

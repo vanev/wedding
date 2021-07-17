@@ -12,7 +12,9 @@ type Props = {
 const Hotel = ({ hotel }: Props) => (
   <div className={styles.root}>
     <Shiny as="h2" className={styles.name}>
-      {hotel.name}
+      <a href={hotel.url} target="_blank">
+        {hotel.name}
+      </a>
     </Shiny>
 
     <Body as="p" className={styles.description}>
@@ -22,7 +24,11 @@ const Hotel = ({ hotel }: Props) => (
     <div className={styles.location}>
       <GoogleMapImage address={hotel.address} className={styles.map} />
 
-      <Address address={hotel.address} className={styles.address} />
+      <Address
+        address={hotel.address}
+        url={hotel.url}
+        className={styles.address}
+      />
 
       <ul className={styles.distances}>
         {hotel.distances.map((distance, index) => (

@@ -20,11 +20,18 @@ const hotels: Array<Hotel> = [
     description: (
       <>
         We're happy to offer a <strong>10%</strong> discount on rooms with the
-        code <strong>HITCHED1221</strong>. The quicker you book, the better.
-        This is our favorite hotel in the city, with an almost-too-chic lobby
-        and a rooftop with movie magic views of the Manhattan skyline. Please
-        note, as is New York's way, the rooms are <em>quite</em> snug, but the
-        decor and energy definitely make up for it.
+        code <strong>HITCHED1221</strong> when you{" "}
+        <a
+          href="https://booking.thehoxton.com/en/availability?checkin=2021-12-10&checkout=2021-12-12&hotelCode=THW&rooms=TWO_ADULT&rateCode=HITCHED1221"
+          target="_blank"
+        >
+          book online
+        </a>
+        . The quicker you book, the better. This is our favorite hotel in the
+        city, with an almost-too-chic lobby and a rooftop with movie magic views
+        of the Manhattan skyline. Please note, as is New York's way, the rooms
+        are <em>quite</em> snug, but the decor and energy definitely make up for
+        it.
       </>
     ),
     distances: [
@@ -41,7 +48,7 @@ const hotels: Array<Hotel> = [
   },
   {
     name: "The Williamsburg Hotel",
-    url: "https://reservations.travelclick.com/113732?RatePlanId=5264142",
+    url: "https://www.thewilliamsburghotel.com/",
     address: {
       street: "96 Wythe Avenue",
       neighborhood: "Williamsburg",
@@ -58,7 +65,10 @@ const hotels: Array<Hotel> = [
         central Williamsburg mainstay with a 2-night minimum. The rooms are a
         bit bigger here and they have a rooftop pool, but it will be December so
         that doesn't really sell you, does it? Anyway, please book through{" "}
-        <a href="https://reservations.travelclick.com/113732?RatePlanId=5264142">
+        <a
+          href="https://reservations.travelclick.com/113732?RatePlanId=5264142"
+          target="_blank"
+        >
           this link
         </a>
         .
