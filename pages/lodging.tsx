@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Hotel from "../lib/Hotel";
-import Page, { Title, Content } from "../components/Page";
+import Page, { Title, Content, Link } from "../components/Page";
 import HotelDisplay from "../components/Hotel";
 
 const hotels: Array<Hotel> = [
@@ -166,6 +166,10 @@ const Lodging = () => (
     </Head>
 
     <Page>
+      <Link href="/">
+        Back <strong>Home</strong>
+      </Link>
+
       <Title>Lodging</Title>
 
       <Content>

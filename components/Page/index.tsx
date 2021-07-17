@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { ReactNode } from "react";
 import styles from "./styles.module.css";
 
@@ -23,6 +24,17 @@ export const Header = ({ children }: Props) => (
 
 export const Body = ({ children }: Props) => (
   <p className={styles.body}>{children}</p>
+);
+
+type LinkProps = {
+  children: ReactNode;
+  href: string;
+};
+
+export const Link = ({ children, href }: LinkProps) => (
+  <NextLink href={href}>
+    <a className={styles.link}>{children}</a>
+  </NextLink>
 );
 
 export default Page;

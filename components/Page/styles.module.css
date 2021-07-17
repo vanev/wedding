@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   padding: 2rem 5%;
 }
 
@@ -13,7 +14,7 @@
 }
 
 .title + .content {
-  margin-top: 3.5rem;
+  margin-top: 5rem;
 }
 
 .header {
@@ -42,4 +43,31 @@
 }
 
 .content {
+}
+
+.link {
+  position: absolute;
+  top: 3rem;
+  left: 2.5%;
+
+  display: block;
+
+  color: var(--colors-primary-text);
+  font-family: var(--fonts-mono);
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  transition: color 250ms ease;
+}
+
+.link strong {
+  font-family: var(--fonts-display);
+  font-weight: bold;
+}
+
+.link:hover {
+  color: var(--colors-secondary-text);
 }

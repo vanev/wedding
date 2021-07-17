@@ -5,7 +5,7 @@ import { isRight } from "fp-ts/lib/Either";
 import { fromArray, remove } from "fp-ts/lib/Set";
 import { peopleTable } from "../lib/Airtable";
 import Guest, { fromRecord, Eq as GuestEq } from "../lib/Guest";
-import Page, { Title, Content, Header, Body } from "../components/Page";
+import Page, { Title, Content, Header, Body, Link } from "../components/Page";
 import RsvpForm from "../components/RsvpForm";
 import Values from "../components/RsvpForm/Values";
 import { useState } from "react";
@@ -91,6 +91,10 @@ const Success = ({ initialGuests }: SuccessProps) => {
       </Head>
 
       <Page>
+        <Link href="/">
+          Back <strong>Home</strong>
+        </Link>
+
         <Title>RSVP</Title>
 
         <Content>
