@@ -29,6 +29,10 @@ const Home = () => {
           Our <strong>Registry</strong>
         </Link>
 
+        <Link href="/schedule" className={styles.schedule}>
+          The <strong>Weekend</strong>
+        </Link>
+
         <Link href="/rsvp" className={styles.rsvp}>
           <strong>RSVP</strong> Here
         </Link>

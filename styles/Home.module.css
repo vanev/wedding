@@ -22,8 +22,13 @@
 }
 .lodging {
   position: absolute;
-  top: 16rem;
+  top: 14rem;
   right: 2.5%;
+}
+.schedule {
+  position: absolute;
+  top: 16rem;
+  left: 2.5%;
 }
 
 .date {

@@ -1,9 +1,8 @@
 import classnames from "classnames";
-import Address from "../../lib/Address";
 import styles from "./styles.module.css";
 
 type Props = {
-  address: Address;
+  address: { latitude: number; longitude: number };
   className?: string;
 };
 

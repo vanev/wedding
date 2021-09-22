@@ -1,0 +1,54 @@
+.day {
+  text-align: center;
+}
+.day + .day {
+  padding-top: 2rem;
+  border-top: 1px solid var(--colors-secondary-text);
+  margin-top: 5vw;
+}
+
+.title {
+  width: 100%;
+  white-space: pre;
+  font-family: var(--fonts-display);
+  font-weight: bold;
+  font-size: 8vw;
+  line-height: 1.25em;
+  color: transparent;
+  text-align: center;
+}
+
+.title + .event {
+  margin-top: 2rem;
+}
+
+.event {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.event + .event {
+  margin-top: 2.5rem;
+}
+
+.detail {
+}
+.detail + .detail {
+  margin-top: 0.5rem;
+}
+
+.detail + .location {
+  margin-top: 1.5rem;
+}
+
+.location {
+  display: block;
+  text-decoration: none;
+}
+
+.location + .map {
+  margin-top: 1rem;
+}
+
+.map {
+  max-width: 18rem;
+}
