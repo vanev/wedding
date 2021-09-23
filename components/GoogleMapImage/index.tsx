@@ -18,7 +18,7 @@ const GoogleMapImage = ({ address, className = "" }: Props) => {
   const options = {
     ...baseOptions,
     center: [address.latitude, address.longitude].join(","),
-    zoom: 16,
+    zoom: 17,
     map_id: "673a00c9f0b84ead",
     markers:
       "color:0x465956|" + [address.latitude, address.longitude].join(","),

@@ -1,0 +1,83 @@
+.introduction {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.introduction p + p {
+  margin-top: 1rem;
+}
+
+.introduction + .section {
+  padding-top: 2rem;
+  border-top: 1px solid var(--colors-secondary-text);
+  margin-top: 5vw;
+}
+
+.section {
+}
+.section + .section {
+  padding-top: 2rem;
+  border-top: 1px solid var(--colors-secondary-text);
+  margin-top: 5vw;
+}
+
+.title {
+  width: 100%;
+  white-space: pre;
+  font-family: var(--fonts-display);
+  font-weight: bold;
+  font-size: 10vw;
+  line-height: 1.25em;
+  color: transparent;
+  text-align: center;
+}
+
+.title + .spot {
+  margin-top: 2.5rem;
+}
+
+.spot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.spot:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+.spot + .spot {
+  margin-top: 2.5rem;
+}
+
+.spot:nth-child(2n) .details {
+  text-align: right;
+}
+
+.details {
+  width: 62.5%;
+}
+
+.details + .map {
+  margin-top: 1rem;
+}
+
+.map {
+  width: 35%;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+.name + .address {
+  margin-top: 0.25rem;
+}
+
+.description {
+}
+.address + .description {
+  margin-top: 1rem;
+}
+
+.address {
+}
