@@ -10,7 +10,10 @@ import Success from "./Success";
 import Failure from "./Failure";
 
 const onFormSubmit = (values: Values): Promise<unknown> =>
-  peopleTable().update(values.guest.id, { RSVP: values.rsvp });
+  peopleTable().update(values.guest.id, {
+    RSVP: values.rsvp,
+    "Welcome RSVP": values.welcomeRsvp,
+  });
 
 type Props = {
   guests: Set<Guest>;

@@ -5,6 +5,7 @@ type RSVP = "Attending" | "Not Attending";
 type Values = {
   guest: Guest;
   rsvp: RSVP;
+  welcomeRsvp: RSVP;
 };
 
 export const initial: Partial<Values> = {};

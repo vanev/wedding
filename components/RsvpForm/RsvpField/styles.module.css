@@ -1,60 +1,36 @@
 .root {
-}
-
-.option {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}
-
-.option + .option {
-  margin-top: 0.75em;
-}
-
-.input {
-  display: none;
-}
-
-.checkbox {
-  position: relative;
-  display: block;
-  width: 1em;
-  height: 1em;
-  font-size: 1em;
-  border: solid 1px var(--colors-secondary-text);
-  cursor: pointer;
-}
-.input:checked + .checkbox {
-  border: solid 1px var(--colors-primary-text);
-}
-.input:checked + .checkbox:after {
-  content: "X️";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  font-family: var(--fonts-mono);
-  font-weight: 600;
-  color: var(--colors-primary-text);
-}
-
-.checkbox + .label {
-  margin-left: 1em;
+  text-align: center;
 }
 
 .label {
-  font-family: var(--fonts-mono);
-  font-weight: 300;
-  color: var(--colors-primary-text);
-  text-transform: uppercase;
-  cursor: pointer;
+  display: block;
 }
-.label strong {
+.label strong,
+.label a {
   font-family: var(--fonts-display);
   font-weight: bold;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.label + .input {
+  margin-top: 0.5rem;
+}
+
+.input {
+  appearance: none;
+  background: transparent;
+  color: var(--colors-primary-text);
+  padding: 0.15em;
+  border: 0;
+  border-bottom: 1px solid;
+  outline: 0;
+  font-family: var(--fonts-display);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
 }

@@ -12,6 +12,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
     | "h4"
     | "h5"
     | "h6"
+    | "label"
     | "p"
     | "span"
     | "strong"
@@ -19,6 +20,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
   className?: string;
   children: ReactNode;
   href?: string;
+  htmlFor?: string;
 }
 
 const BodyText = ({

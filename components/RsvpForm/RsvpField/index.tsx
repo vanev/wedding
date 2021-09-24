@@ -1,7 +1,11 @@
+import { ChangeEventHandler, ReactNode } from "react";
+import Body from "../../Text/Body";
 import styles from "./styles.module.css";
 
 type Props = {
   className?: string;
+  id: string;
+  label: ReactNode;
   disabled?: boolean;
   onChange: (value: "Attending" | "Not Attending") => void;
   value: "Attending" | "Not Attending" | void;
@@ -9,45 +13,42 @@ type Props = {
 
 const RsvpField = ({
   className = "",
+  id,
+  label,
   disabled = false,
   onChange,
   value,
 }: Props) => {
+  const handleSelectChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
+    if (
+      event.target.value === "Attending" ||
+      event.target.value === "Not Attending"
+    ) {
+      onChange(event.target.value);
+    }
+  };
+
   return (
     <div className={`${styles.root} ${className}`}>
-      <div className={styles.option}>
-        <input
-          className={styles.input}
-          type="radio"
-          name="rsvp"
-          value="Attending"
-          id="rsvp_attending"
-          disabled={disabled}
-          checked={value === "Attending"}
-          onChange={() => onChange("Attending")}
-        />
-        <label className={styles.checkbox} htmlFor="rsvp_attending" />
-        <label className={styles.label} htmlFor="rsvp_attending">
-          See <strong>You</strong> There
-        </label>
-      </div>
+      <Body as="label" className={styles.label} htmlFor={id}>
+        {label}
+      </Body>
 
-      <div className={styles.option}>
-        <input
-          className={styles.input}
-          type="radio"
-          name="rsvp"
-          value="Not Attending"
-          id="rsvp_not_attending"
-          disabled={disabled}
-          checked={value === "Not Attending"}
-          onChange={() => onChange("Not Attending")}
-        />
-        <label className={styles.checkbox} htmlFor="rsvp_not_attending" />
-        <label className={styles.label} htmlFor="rsvp_not_attending">
-          <strong>Can't</strong> Make It
-        </label>
-      </div>
+      <select
+        className={styles.input}
+        name={id}
+        value={value || ""}
+        onChange={handleSelectChange}
+        disabled={disabled}
+      >
+        <option value="" disabled>
+          Choose A Response
+        </option>
+
+        <option value="Attending">See You There</option>
+
+        <option value="Not Attending">Can't Make It</option>
+      </select>
     </div>
   );
 };

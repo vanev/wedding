@@ -1,4 +1,5 @@
 import { toArray } from "fp-ts/lib/Set";
+import Link from "next/link";
 import { FormEventHandler } from "react";
 import * as Form from "../../lib/Form";
 import Guest, { Ord as GuestOrd } from "../../lib/Guest";
@@ -36,8 +37,23 @@ const FormComponent = ({ guests, state }: Props) => {
 
       <RsvpField
         className={styles.field}
+        id="wedding_rsvp"
+        label="Will you join us for the wedding?"
         onChange={(value) => state.update("rsvp", value)}
         value={state.values.rsvp}
+      />
+
+      <RsvpField
+        className={styles.field}
+        id="welcome_rsvp"
+        label={
+          <>
+            How about welcome drinks on Friday night? Details on{" "}
+            <Link href="/schedule">the Weekend</Link> page.
+          </>
+        }
+        onChange={(value) => state.update("welcomeRsvp", value)}
+        value={state.values.welcomeRsvp}
       />
 
       <Button
