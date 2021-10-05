@@ -115,16 +115,16 @@ const Rsvp = (props: Props) => {
   }
 };
 
-const fetchUnknownRSVPGuests = () =>
+const fetchInvitedGuests = () =>
   peopleTable()
-    .select({ view: "RSVP: Unknown", filterByFormula: "{Tier}='A'" })
+    .select({ view: "Everyone", filterByFormula: "{Invite Sent}='true'" })
     .all()
     .then((records) => records.map(fromRecord))
     .then(filter(isRight))
     .then(map((r) => r.right));
 
 export const getServerSideProps: GetServerSideProps<Props> = (context) =>
-  fetchUnknownRSVPGuests()
+  fetchInvitedGuests()
     .then(successProps)
     .catch(failureProps)
     .then((props) => ({ props }));
