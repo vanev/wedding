@@ -111,9 +111,23 @@ const Schedule = () => (
               11:00PM Until Late
             </Body>
 
-            <Body as="p" className={styles.detail}>
-              <em>Hot Spot to Come</em>
+            <Body
+              as="a"
+              href="https://goo.gl/maps/yVJ1MBHiu1CrFdG36"
+              className={styles.location}
+            >
+              Beats Karaoke
+              <br />
+              219 Grand St, Brooklyn, NY 11211
             </Body>
+
+            <GoogleMapImage
+              address={{
+                latitude: 40.71392821497226,
+                longitude: -73.95959357318677,
+              }}
+              className={styles.map}
+            />
           </div>
         </div>
       </Content>
