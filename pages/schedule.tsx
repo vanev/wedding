@@ -41,6 +41,10 @@ const Schedule = () => (
               Wine, Beer, + Lite Pizza Fare
             </Body>
 
+            <Body as="p" className={styles.detail}>
+              Dress Code: Office Holiday Party Chic
+            </Body>
+
             <Body
               as="a"
               href="https://goo.gl/maps/mscCpo6RFemh7QRq8"
